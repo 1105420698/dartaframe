@@ -1,4 +1,4 @@
-import 'package:df/df.dart';
+import 'package:dartaframe/dartaframe.dart';
 
 Future<void> main() async {
   final df = await DataFrame.fromCsv('dataset/stocks.csv',

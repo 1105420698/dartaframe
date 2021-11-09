@@ -1,8 +1,8 @@
-# Df
+# Dartaframe
 
-[![pub package](https://img.shields.io/pub/v/df.svg)](https://pub.dartlang.org/packages/df) [![Build Status](https://travis-ci.org/synw/df.svg?branch=master)](https://travis-ci.org/synw/df) [![Coverage Status](https://coveralls.io/repos/github/synw/df/badge.svg?branch=master)](https://coveralls.io/github/synw/df?branch=master)
+Upstream (df): [![pub package](https://img.shields.io/pub/v/df.svg)](https://pub.dartlang.org/packages/df) [![Build Status](https://travis-ci.org/synw/df.svg?branch=master)](https://travis-ci.org/synw/df) [![Coverage Status](https://coveralls.io/repos/github/synw/df/badge.svg?branch=master)](https://coveralls.io/github/synw/df?branch=master)
 
-A dataframe for Dart
+A fork of the df dataframe for Dart
 
 ## Usage
 

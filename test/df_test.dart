@@ -1,5 +1,5 @@
+import 'package:dartaframe/dartaframe.dart';
 import 'package:test/test.dart';
-import 'package:df/df.dart';
 
 DataFrame baseDf = DataFrame();
 

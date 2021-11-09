@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:df/src/util/csv_parser.dart';
+import 'package:dartaframe/src/util/csv_parser.dart';
 import 'package:test/test.dart';
 
 CharIter _iterFromLine(String line) =>

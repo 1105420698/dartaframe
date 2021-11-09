@@ -1,9 +1,10 @@
-name: df_example
+name: dartaframe_example
 version: 0.0.1
+publish_to: none
 
 environment:
   sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
-  df:
+  dartaframe:
     path: ../

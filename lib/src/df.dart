@@ -69,7 +69,9 @@ class DataFrame {
       _columns.add(DataFrameColumn(name: k, type: t));
     });
     // fill the data
-    rows.forEach((row) => _matrix.addRow(row, _columnIndices()));
+    for (var row in rows) {
+      _matrix.addRow(row, _columnIndices());
+    }
   }
 
   static List<Object?> _parseVals(
@@ -79,7 +81,7 @@ class DataFrame {
       TimestampFormat? timestampFormat}) {
     var vi = 0;
     final colValues = <Object?>[];
-    vals.forEach((Object v) {
+    for (var v in vals) {
       // cast records to the right type
       switch (columnsNames[vi].type) {
         case int:
@@ -111,10 +113,14 @@ class DataFrame {
           }
           break;
         default:
-          colValues.add(v);
+          if (v.toString() != "") {
+              colValues.add(v);
+          } else {
+            colValues.add("null");
+          }
       }
       ++vi;
-    });
+    }
     return colValues;
   }
 
@@ -142,7 +148,7 @@ class DataFrame {
       } else {
         var vi = 0;
         if (i == 2) {
-          vals.forEach((v) {
+          for (var v in vals) {
             DataFrameColumn col;
             if (_colNames[vi] == timestampCol) {
               col = DataFrameColumn(name: _colNames[vi], type: DateTime);
@@ -152,7 +158,7 @@ class DataFrame {
             }
             df._columns.add(col);
             ++vi;
-          });
+          }
         }
         final colValues = _parseVals(vals, df._columns,
             dateFormat: dateFormat,
@@ -276,6 +282,22 @@ class DataFrame {
       {List<Object> zeroValues = const <Object>[0]}) {
     final n = _matrix.countForValues(_indexForColumn(colName), zeroValues);
     return n;
+  }
+
+  /// Count missing data in a table
+  DataFrame countMissingData_({List<Object?> nullValues = const [null, 'null', 'nan', 'NULL', 'N/A']}) {
+    final DataFrame result = copy_();
+    result.limit(0, startIndex: 0);
+    final Map<String, Object> countRow = {};
+
+    for (String name in columnsNames) {
+      int c = countNulls_(name);
+      countRow[name] = c;
+    }
+
+    result.addRow(countRow);
+
+    return result;
   }
 
   // ********* insert operations **********

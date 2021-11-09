@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../df.dart';
+import '../dartaframe.dart';
 
 /// A class to manage the data inside the [DataFrame]
 class DataMatrix {
@@ -21,10 +21,10 @@ class DataMatrix {
     final row = <String, Object>{};
     final dataRow = data[index];
     var i = 0;
-    dataRow.forEach((item) {
+    for (var item in dataRow) {
       if (item != null) row[indicesToColumnNames[i]] = item;
       i++;
-    });
+    }
     return row;
   }
 
@@ -35,10 +35,10 @@ class DataMatrix {
     for (final row in data.sublist(startIndex, endIndex)) {
       final dataRow = <String, Object>{};
       var i = 0;
-      row.forEach((Object? item) {
+      for (var item in row) {
         if (item != null) dataRow[columnNames[i]] = item;
         i++;
-      });
+      }
       dataRows.add(dataRow);
     }
     return dataRows;
@@ -55,7 +55,7 @@ class DataMatrix {
   /// Get typed data for a specific column in a row.
   T? typedRecordForColumnIndexInRow<T>(int columnIndex, List<Object?> row) {
     final rawVal = row[columnIndex];
-    if (!(rawVal is T?)) {
+    if (rawVal is! T?) {
       throw ArgumentError(
           'Requested the record ($rawVal) as a $T at index $columnIndex of the following row:\n\t$row\n '
           'but the record is a ${rawVal.runtimeType} which is not a subtype of $T.');
@@ -68,11 +68,11 @@ class DataMatrix {
   /// Count values in a column
   int countForValues(int columnIndex, List<Object?> values) {
     var n = 0;
-    data.forEach((row) {
+    for (var row in data) {
       if (values.contains(row[columnIndex])) {
         ++n;
       }
-    });
+    }
     return n;
   }
 
