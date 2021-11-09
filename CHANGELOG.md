@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.1
+
+Forked df
+- Renames to dartaframe
+- Updates to better integrate with sdartistics
+
 ## 0.4.0-nullsafety.0
 
  - Updates df to support null safety
