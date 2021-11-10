@@ -1,4 +1,4 @@
-library df;
+library dartaframe;
 
 export 'src/column.dart';
 export 'src/df.dart';
