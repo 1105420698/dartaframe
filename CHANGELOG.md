@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.2
+Rename the library.
+
 ## 0.0.1
 
 Forked df
