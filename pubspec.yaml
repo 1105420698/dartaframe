@@ -1,7 +1,7 @@
 name: dartaframe
 description: A dataframe for Dart. An abstraction to help manipulating and analysing data, designed for sdartistics.
 homepage: https://github.com/1105420698/dartaframe
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
