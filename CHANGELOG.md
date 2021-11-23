@@ -1,11 +1,17 @@
 # Changelog
 
+## 0.0.3
+
+Modifies the dependency versions to better support.
+- fixes an issue with analyzer.
+
 ## 0.0.2
-Rename the library.
+
+Renames the library.
 
 ## 0.0.1
 
-Forked df
+Forks df
 - Renames to dartaframe
 - Updates to better integrate with sdartistics
 
